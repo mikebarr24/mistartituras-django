@@ -1,3 +1,30 @@
+$primary-color: #014652;
+$white-color: #efefef;
+$logo-color: #08b9b8;
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: aqua;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin laptop {
+  @media (min-width: 922px) {
+    @content;
+  }
 }

@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, "parts/layout.html")
+    return render(request, "parts/index.html")
