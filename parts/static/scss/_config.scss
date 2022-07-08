@@ -29,6 +29,11 @@ a {
   color: inherit;
 }
 
+.page-heading {
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
 @mixin laptop {
   @media (min-width: 922px) {
     @content;

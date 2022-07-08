@@ -25,6 +25,11 @@ a {
   color: inherit;
 }
 
+.page-heading {
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
 html {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
@@ -50,6 +55,11 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.page-heading {
+  margin: 0 auto;
+  font-size: 2rem;
 }
 
 #hero {
@@ -126,6 +136,11 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.page-heading {
+  margin: 0 auto;
+  font-size: 2rem;
 }
 
 .navbar {
@@ -260,5 +275,92 @@ a {
   .navbar .burger-button {
     display: none;
   }
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: url("../media/body-bockground.svg"), #014652;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #efefef;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-heading {
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+#nosotros {
+  padding: 1rem 10px;
+  margin-top: 40px;
+  min-height: calc(100vh - $nav-height);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 922px) {
+  #nosotros {
+    padding: 2rem 10px;
+  }
+}
+
+#nosotros .photo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 2rem;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 922px) {
+  #nosotros .photo-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+#nosotros .photo-container img {
+  border-radius: 50%;
+  margin-top: 3rem;
+  min-width: 150px;
+  max-width: 300px;
 }
 /*# sourceMappingURL=main.css.map */

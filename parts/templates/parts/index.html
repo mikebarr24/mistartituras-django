@@ -1,6 +1,6 @@
 {% extends "parts/layout.html" %}
 {% load static %}
-{% block title %} Test {%endblock%}
+{% block title %} Inicio {%endblock%}
 {% block body %}
 <section id="hero">
   <div class="hero-text-container">
@@ -8,7 +8,8 @@
     <h2 class="hero-subtitle">Busca, escucha y encuentra partituras de tu nivel de la forma más
       sencilla.</h2>
   </div>
-  <button class="search-button-hero">Buscar</button>
+  <a href="{% url 'buscar' %}">
+    <button class="search-button-hero">Buscar</button>
+  </a>
 </section>
 {% endblock %}
-{% block script %}"static '/js/index.js'"{% endblock %}
