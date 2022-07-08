@@ -1,0 +1,32 @@
+@import "./config";
+
+#contacto {
+  margin-top: $nav-height;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  .contact-message {
+    text-align: center;
+  }
+  .input-form {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    margin-top: 1rem;
+    max-width: 600px;
+    margin: 1rem auto;
+    * {
+      font-size: 1rem;
+      font-family: "Montserrat", sans-serif;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-radius: 10px;
+    }
+  }
+  .submit-button {
+    margin: 1rem auto;
+    width: 200px;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+  }
+}
