@@ -13,6 +13,11 @@ html {
 body {
   overflow-x: hidden;
   overflow-y: auto;
+  background: url("../media/body-bockground.svg"), #014652;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #efefef;
 }
 
 a {
@@ -35,6 +40,87 @@ html {
 body {
   overflow-x: hidden;
   overflow-y: auto;
+  background: url("../media/body-bockground.svg"), #014652;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #efefef;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#hero {
+  margin-top: 40px;
+  min-height: calc(100vh- $nav-height);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+}
+
+#hero .hero-text-container {
+  text-align: center;
+}
+
+@media (min-width: 922px) {
+  #hero .hero-text-container {
+    width: 50%;
+    margin-top: 3rem;
+  }
+}
+
+#hero .hero-text-container .hero-title {
+  font-size: 3rem;
+}
+
+#hero .hero-text-container .hero-subtitle {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+#hero .search-button-hero {
+  margin: 2rem auto;
+  padding: 0.5rem 3rem;
+  font-size: 2rem;
+  border: none;
+  border-radius: 10px;
+  color: #014652;
+}
+
+#hero .search-button-hero:hover {
+  cursor: pointer;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: url("../media/body-bockground.svg"), #014652;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #efefef;
 }
 
 a {
@@ -43,10 +129,16 @@ a {
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  height: 40px;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: #014652;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 922px) {

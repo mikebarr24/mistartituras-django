@@ -2,8 +2,13 @@
 {% load static %}
 {% block title %} Test {%endblock%}
 {% block body %}
-  <div>
-    This is a test
+<section id="hero">
+  <div class="hero-text-container">
+    <h1 class="hero-title">Si no sabes qué tocar hoy, este es tu sitio</h1>
+    <h2 class="hero-subtitle">Busca, escucha y encuentra partituras de tu nivel de la forma más
+      sencilla.</h2>
   </div>
+  <button class="search-button-hero">Buscar</button>
+</section>
 {% endblock %}
 {% block script %}"static '/js/index.js'"{% endblock %}

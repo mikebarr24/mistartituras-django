@@ -1,6 +1,7 @@
 $primary-color: #014652;
 $white-color: #efefef;
 $logo-color: #08b9b8;
+$nav-height: 40px;
 
 html {
   font-family: "Montserrat", sans-serif;
@@ -16,6 +17,11 @@ html {
 body {
   overflow-x: hidden;
   overflow-y: auto;
+  background: url("../media/body-bockground.svg"), $primary-color;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: $white-color;
 }
 
 a {
