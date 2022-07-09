@@ -6,12 +6,12 @@
   <h1 class="page-heading">Login</h1>
   <form action="">
     <fieldset class="login-form">
-      <input class="login-input" type="email" placeholder="Email">
+      <input class="login-input" type="text" placeholder="Username">
       <input class="login-input" type="password" placeholder="Password">
       <input class="login-button" type="submit" value="Login">
     </fieldset>
   </form>
-  <a href="">
+  <a href="{% url 'newuser' %}">
     <button class="create-button">Create Account</button>
   </a>
 </section>

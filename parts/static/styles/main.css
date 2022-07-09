@@ -708,4 +708,84 @@ a {
 #login a {
   margin: 0 auto;
 }
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: url("../media/body-bockground.svg"), #014652;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position-y: 40px;
+  color: #efefef;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-heading {
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+#new-user {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px;
+}
+
+#new-user .new-user-form {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+}
+
+#new-user input {
+  margin: 0.7rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+}
+
+#new-user .submit-button {
+  width: 60%;
+  border-radius: 50px;
+}
 /*# sourceMappingURL=main.css.map */

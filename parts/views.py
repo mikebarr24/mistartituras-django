@@ -34,3 +34,7 @@ def instrument(request, inst):
 
 def login(request):
     return render(request, "parts/login.html")
+
+
+def new_user(request):
+    return render(request, "parts/new-user.html")

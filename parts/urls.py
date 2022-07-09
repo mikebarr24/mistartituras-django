@@ -9,4 +9,5 @@ urlpatterns = [
     path('buscar/<str:inst>', views.instrument, name="instrument"),
     path('contacto', views.contacto, name="contacto"),
     path('login', views.login, name="login"),
+    path('newuser', views.new_user, name="newuser"),
 ]

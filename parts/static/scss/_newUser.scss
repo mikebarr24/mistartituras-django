@@ -1,0 +1,29 @@
+@import "./config";
+
+#new-user {
+  margin-top: $nav-height;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  .new-user-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    align-items: center;
+    background-color: rgba($color: #ffffff, $alpha: 0.4);
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+  }
+  input {
+    margin: 0.7rem 0;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+  }
+  .submit-button {
+    width: 60%;
+    border-radius: 50px;
+  }
+}
