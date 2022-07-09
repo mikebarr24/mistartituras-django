@@ -4,10 +4,10 @@
 {% block body %}
 <section id="login">
   <h1 class="page-heading">Login</h1>
-  <form action="">
+  <form action="" method="post">
     <fieldset class="login-form">
-      <input class="login-input" type="text" placeholder="Username">
-      <input class="login-input" type="password" placeholder="Password">
+      {% csrf_token %}
+      {{form}}
       <input class="login-button" type="submit" value="Login">
     </fieldset>
   </form>

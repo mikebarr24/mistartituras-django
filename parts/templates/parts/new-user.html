@@ -4,16 +4,23 @@
 {% block body %}
 <section id="new-user">
   <h1 class="page-heading">Create New User</h1>
-  <form action="">
+  <form action="{% url 'newuser' %}" method="post">
     <fieldset class="new-user-form">
-      <input type="text" placeholder="*Username">
-      <input type="text" placeholder="*Name">
-      <input type="email" placeholder="*Email">
-      <input type="password" placeholder="*Password">
-      <input type="password" placeholder="*Re-Enter Password">
+      {% csrf_token %}
+      {{form}}
       <input class="submit-button" type="submit">
     </fieldset>
   </form>
+  {% if "Passwords" in message%}
+  <div class="message-password">
+    {{message}}
+  </div>
+  {% endif %}
+  {% if "account" in message%}
+  <div class="message-good">
+    {{message}}
+  </div>
+  {% endif %}
 </section>
 
 {% endblock %}
