@@ -1,0 +1,18 @@
+{% extends 'parts/layout.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block body %}
+<section id="login">
+  <h1 class="page-heading">Login</h1>
+  <form action="">
+    <fieldset class="login-form">
+      <input class="login-input" type="email" placeholder="Email">
+      <input class="login-input" type="password" placeholder="Password">
+      <input class="login-button" type="submit" value="Login">
+    </fieldset>
+  </form>
+  <a href="">
+    <button class="create-button">Create Account</button>
+  </a>
+</section>
+{% endblock %}
