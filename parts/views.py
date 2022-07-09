@@ -30,3 +30,7 @@ def instrument(request, inst):
         "parts": selected_instrument,
         'instrument': inst
     })
+
+
+def login(request):
+    return render(request, "parts/login.html")

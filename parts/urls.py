@@ -8,4 +8,5 @@ urlpatterns = [
     path('buscar', views.buscar, name="buscar"),
     path('buscar/<str:inst>', views.instrument, name="instrument"),
     path('contacto', views.contacto, name="contacto"),
+    path('login', views.login, name="login"),
 ]
