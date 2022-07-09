@@ -3,6 +3,17 @@
 {% block title %} Buscar {%endblock%}
 {% block body %}
 <section id="buscar">
-Buscar
+  <h1 class="page-heading">Buscar</h1>
+
+  <div class="instrument-tabs">
+    {% for instrument in instruments %}
+    <a href="{% url 'buscar' %}/{{instrument}}">
+      <div class="instrument-tab">
+        <img src="../../static/media/instruments/{{instrument}}.png" class="instrument-image" alt="{{instrument}}">
+        <p>{{instrument|title}}</p>
+      </div>
+        {% endfor %}
+    </a>
+  </div>
 </section>
 {% endblock %}

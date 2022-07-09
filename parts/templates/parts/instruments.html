@@ -1,0 +1,23 @@
+{% extends 'parts/layout.html' %}
+{% load static %}
+{% block title %}{{instrument|title}}{% endblock %}
+
+{% block body %}
+<div id="instrument">
+  <h1 class="page-heading">{{instrument|title}}</h1>
+  <div class="part-display-wrapper">
+    <div class="items-wrapper">
+      <div class="item-wrapper">
+        <p class="bold">Pieza</p>
+        <p class="bold">Compositor</p>
+      </div>
+      {% for part in parts %}
+      <div class="item-wrapper">
+        <p>{{ part.part_title }}</p>
+        <p>{{ part.composer_name }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

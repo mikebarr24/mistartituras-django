@@ -35,6 +35,10 @@ a {
   font-size: 2rem;
 }
 
+.bold {
+  font-weight: 600;
+}
+
 @mixin laptop {
   @media (min-width: 922px) {
     @content;

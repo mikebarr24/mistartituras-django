@@ -1,4 +1,3 @@
-from tkinter import CASCADE
 from django.db import models
 
 
@@ -13,18 +12,33 @@ class Part(models.Model):
     pdf = models.URLField(max_length=200)
     audio = models.URLField(max_length=200)
 
+    def __str__(self):
+        return f"{self.part_title} -- {self.composer_name}"
+
 
 class Instrument(models.Model):
     instrument = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.instrument
 
 
 class Level(models.Model):
     level = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.level
+
 
 class Style(models.Model):
     style = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.style
+
 
 class Curso(models.Model):
     curso = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.curso
