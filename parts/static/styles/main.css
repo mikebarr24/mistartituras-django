@@ -849,6 +849,29 @@ a {
   padding: 10px;
 }
 
+#account .new-part-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#account .new-part-form input,
+#account .new-part-form select {
+  margin-bottom: 1rem;
+  padding: 0.3rem 0.5rem;
+}
+
+#account .new-part-form .part-submit-button {
+  width: 50%;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+}
+
 #account .part-display-wrapper {
   background-color: rgba(239, 239, 239, 0.8);
   padding: 0.3rem;
@@ -975,5 +998,12 @@ a {
 
 #part .piece-data-wrapper h2 {
   font-weight: 400;
+}
+
+#part .piece-data-wrapper .complete-message {
+  margin-top: 1rem;
+  background-color: green;
+  padding: 10px;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=main.css.map */

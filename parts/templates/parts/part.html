@@ -7,6 +7,12 @@
 <section id="part">
   <h1 class="piece-title">{{part.part_title}}</h1>
   <h2 class="piece-composer">{{part.composer_name}}</h2>
+  {% if user.is_staff %}
+  <form action="{% url 'api' %}" method="post">
+    <input name="edit" type="submit" value="Edit">
+    <input name="delete" type="submit" value="Delete">
+  </form>
+  {% endif %}
   <iframe class="piece-audio" src={{part.audio}}></iframe>
   <div class="piece-data-wrapper">
     <h2 class="piece-instrument">Instrumento - {{part.instrument|title}}</h2>
@@ -27,6 +33,7 @@
           <button type="button" class="student-submit">Submit</button>
         </fieldset>
       </form>
+      <div class="complete-message-wrapper"></div>
       {% endif %}
       {% if user in part.student.all %}
         <button class="remove-part">Remove Part</button>

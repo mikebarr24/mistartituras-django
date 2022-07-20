@@ -1,4 +1,7 @@
 from django import forms
+from django.forms import ModelForm
+
+from .models import Part
 
 
 class NewUserForm(forms.Form):
@@ -19,3 +22,11 @@ class LoginForm(forms.Form):
         attrs={'placeholder': "Username"}))
     password = forms.CharField(widget=forms.PasswordInput(
         attrs={'placeholder': "Password"}), label="")
+
+
+class PartForm(ModelForm):
+
+    class Meta:
+        model = Part
+        fields = ["part_title", "composer_name", "instrument",
+                  "level", "style", "curso", "pdf", "audio"]

@@ -35,7 +35,14 @@ window.addEventListener("DOMContentLoaded", () => {
           studentId: studentId,
           part: queryString,
         }),
-      });
+      })
+        .then((res) => res.json())
+        .then((text) => {
+          const complete = document.createElement("div");
+          complete.className = "complete-message";
+          complete.innerHTML = text.complete;
+          document.querySelector(".complete-message-wrapper").append(complete);
+        });
     });
   }
 });

@@ -1,5 +1,6 @@
 import json
 from django.http import HttpResponse, HttpResponseRedirect
+from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -8,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from django.shortcuts import redirect
 from .models import Instrument, Part
-from .forms import NewUserForm, LoginForm
+from .forms import NewUserForm, LoginForm, PartForm
 import logging
 
 logger = logging.getLogger(__name__)
@@ -40,18 +41,24 @@ def part(request, part_id):
 
 @csrf_exempt
 def api(request):
-    data = json.loads(request.body)
     if request.method == "PUT" and data.get("type") == "add":
+        data = json.loads(request.body)
         student_id = data.get("studentId")
         part_id = data.get("part")
         selected_part = Part.objects.get(pk=part_id)
         selected_student = User.objects.get(pk=student_id)
         selected_part.student.add(selected_student)
-        return HttpResponse(200)
+        return JsonResponse({
+            "complete": f"{selected_part.part_title} has been added to {selected_student.username}"
+        })
     elif request.method == "PUT" and data.get("type") == "remove":
+        data = json.loads(request.body)
         part_id = data.get('part')
         selected_part = Part.objects.get(pk=part_id)
         selected_part.student.remove(request.user.id)
+        return HttpResponse(200)
+    elif request.method == "POST":
+
         return HttpResponse(200)
 
 
@@ -125,7 +132,24 @@ def new_user(request):
 @ login_required
 @ csrf_exempt
 def account(request, username):
+    if request.method == "POST":
+        form = PartForm(request.POST)
+        if form.is_valid():
+            part_title = form.cleaned_data['part_title']
+            composer_name = form.cleaned_data['composer_name']
+            instrument = form.cleaned_data['instrument']
+            level = form.cleaned_data['level']
+            style = form.cleaned_data['style']
+            curso = form.cleaned_data['curso']
+            pdf = form.cleaned_data['pdf']
+            audio = form.cleaned_data['audio']
+            part = Part(part_title=part_title, composer_name=composer_name, instrument=instrument,
+                        level=level, style=style, curso=curso, pdf=pdf, audio=audio)
+            part.save()
+            return HttpResponseRedirect(reverse("part", kwargs={"part_id": part.id}))
+
     student_parts = Part.objects.filter(student=request.user.id)
     return render(request, "parts/account.html", {
-        "parts": student_parts
+        "parts": student_parts,
+        "form": PartForm
     })

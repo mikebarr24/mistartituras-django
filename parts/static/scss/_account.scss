@@ -3,6 +3,21 @@
 #account {
   margin-top: $nav-height;
   padding: 10px;
+  .new-part-form {
+    display: flex;
+    flex-direction: column;
+    input,
+    select {
+      margin-bottom: 1rem;
+      padding: 0.3rem 0.5rem;
+    }
+    .part-submit-button {
+      width: 50%;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+    }
+  }
   .part-display-wrapper {
     background-color: rgba($color: $white-color, $alpha: 0.8);
     padding: 0.3rem;
