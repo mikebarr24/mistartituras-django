@@ -849,6 +849,34 @@ a {
   padding: 10px;
 }
 
+#account .part-display-wrapper {
+  background-color: rgba(239, 239, 239, 0.8);
+  padding: 0.3rem;
+  color: #014652;
+  border-radius: 10px;
+  min-height: 50vh;
+}
+
+#account .part-display-wrapper .item-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 55% 45%;
+      grid-template-columns: 55% 45%;
+  background-color: #efefef;
+  padding: 5px;
+  margin-bottom: 3px;
+}
+
+#account .part-display-wrapper .item-wrapper:first-of-type {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#account .part-display-wrapper .item-wrapper:last-of-type {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 html {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;

@@ -1,5 +1,4 @@
 import json
-from select import select
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -7,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
+from django.shortcuts import redirect
 from .models import Instrument, Part
 from .forms import NewUserForm, LoginForm
 import logging
@@ -40,13 +40,18 @@ def part(request, part_id):
 
 @csrf_exempt
 def api(request):
-    if request.method == "PUT":
-        data = json.loads(request.body)
+    data = json.loads(request.body)
+    if request.method == "PUT" and data.get("type") == "add":
         student_id = data.get("studentId")
         part_id = data.get("part")
         selected_part = Part.objects.get(pk=part_id)
         selected_student = User.objects.get(pk=student_id)
         selected_part.student.add(selected_student)
+        return HttpResponse(200)
+    elif request.method == "PUT" and data.get("type") == "remove":
+        part_id = data.get('part')
+        selected_part = Part.objects.get(pk=part_id)
+        selected_part.student.remove(request.user.id)
         return HttpResponse(200)
 
 
@@ -117,6 +122,10 @@ def new_user(request):
     })
 
 
-@login_required
+@ login_required
+@ csrf_exempt
 def account(request, username):
-    return render(request, "parts/account.html")
+    student_parts = Part.objects.filter(student=request.user.id)
+    return render(request, "parts/account.html", {
+        "parts": student_parts
+    })

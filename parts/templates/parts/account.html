@@ -11,6 +11,20 @@
   <h1>Staff Account</h1>
   {% else %}
   <h1>Student Account</h1>
+  <div class="part-display-wrapper">
+    <div class="items-wrapper">
+      <div class="item-wrapper">
+        <p class="bold">Pieza</p>
+        <p class="bold">Compositor</p>
+      </div>
+      {% for part in parts %}
+      <a href="{% url 'part' part.id%}" class="item-wrapper">
+          <p>{{ part.part_title }}</p>
+          <p>{{ part.composer_name }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
   {% endif %}
 </section>
 

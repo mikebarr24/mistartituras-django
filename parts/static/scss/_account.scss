@@ -3,4 +3,26 @@
 #account {
   margin-top: $nav-height;
   padding: 10px;
+  .part-display-wrapper {
+    background-color: rgba($color: $white-color, $alpha: 0.8);
+    padding: 0.3rem;
+    color: $primary-color;
+    border-radius: 10px;
+    min-height: 50vh;
+    .item-wrapper {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      background-color: $white-color;
+      padding: 5px;
+      margin-bottom: 3px;
+      &:first-of-type {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      &:last-of-type {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
 }

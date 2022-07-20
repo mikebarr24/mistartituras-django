@@ -28,6 +28,9 @@
         </fieldset>
       </form>
       {% endif %}
+      {% if user in part.student.all %}
+        <button class="remove-part">Remove Part</button>
+      {% endif %}
     </div>
   </div>
 </section>
