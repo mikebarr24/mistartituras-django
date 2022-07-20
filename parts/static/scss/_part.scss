@@ -1,0 +1,52 @@
+@import "./config";
+
+#part {
+  margin-top: $nav-height;
+  padding: 10px;
+  .piece-composer {
+    font-weight: 400;
+  }
+  .piece-audio {
+    width: 100%;
+    height: 300px;
+  }
+  .piece-button-wrapper {
+    margin-top: 1rem;
+    button {
+      width: 140px;
+      margin-right: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      border: none;
+    }
+    .add-form {
+      margin-top: 1rem;
+      display: none;
+      &.active {
+        display: flex;
+      }
+      select,
+      button {
+        padding: 0.5rem 1rem;
+        border-radius: 10px;
+        margin-right: 1rem;
+        border: 1px solid black;
+      }
+      fieldset {
+        border: none;
+        padding: 10px;
+        background-color: $white-color;
+        border-radius: 10px;
+      }
+    }
+  }
+  .piece-data-wrapper {
+    background-color: rgba($color: #ffffff, $alpha: 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 1rem;
+    h2 {
+      font-weight: 400;
+    }
+  }
+}

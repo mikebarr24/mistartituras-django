@@ -1,0 +1,17 @@
+{% extends 'parts/layout.html' %}
+{% load static %}
+
+{% block title %}Account: {{user.username}}{% endblock %}
+
+{% block body %}
+
+<section id="account">
+  <h1>Welcome {{user.username}}</h1>
+  {% if user.is_staff %}
+  <h1>Staff Account</h1>
+  {% else %}
+  <h1>Student Account</h1>
+  {% endif %}
+</section>
+
+{% endblock %}

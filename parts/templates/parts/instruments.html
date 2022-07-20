@@ -12,10 +12,10 @@
         <p class="bold">Compositor</p>
       </div>
       {% for part in parts %}
-      <div class="item-wrapper">
-        <p>{{ part.part_title }}</p>
-        <p>{{ part.composer_name }}</p>
-      </div>
+      <a href="{% url 'part' part.id%}" class="item-wrapper">
+          <p>{{ part.part_title }}</p>
+          <p>{{ part.composer_name }}</p>
+      </a>
       {% endfor %}
     </div>
   </div>

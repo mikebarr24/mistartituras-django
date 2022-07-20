@@ -1,0 +1,36 @@
+{% extends "parts/layout.html" %}
+{% load static %}
+
+{% block title %}{{ part.part_title }} - {{ part.composer_name }}{% endblock %}
+
+{% block body %}
+<section id="part">
+  <h1 class="piece-title">{{part.part_title}}</h1>
+  <h2 class="piece-composer">{{part.composer_name}}</h2>
+  <iframe class="piece-audio" src={{part.audio}}></iframe>
+  <div class="piece-data-wrapper">
+    <h2 class="piece-instrument">Instrumento - {{part.instrument|title}}</h2>
+    <h2 class="piece-level">Nivel - {{part.level|title}}</h2>
+    <h2 class="piece-curso">Curso - {{part.curso|title}}</h2>
+    <div class="piece-button-wrapper">
+      <a href={{part.pdf}}><button class="piece-pdf-button">PDF</button></a>
+      {% if user.is_staff %}
+      <button class="piece-add-student">Add to Student</button>
+      <form action="" class="add-form">
+        <fieldset>
+          <select name="" id="" class="student-select">
+            <option value="">Elegir Alumno</option>
+            {% for student in students %}
+            <option value="{{ student.id }}">{{ student.first_name }}</option>
+            {% endfor %}
+          </select>
+          <button type="button" class="student-submit">Submit</button>
+        </fieldset>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script src="{% static 'js/part.js' %}"></script>
+{% endblock %}

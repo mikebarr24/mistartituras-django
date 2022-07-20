@@ -806,4 +806,146 @@ a {
   border-radius: 50px;
   text-align: center;
 }
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: url("../media/body-bockground.svg"), #014652;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position-y: 40px;
+  color: #efefef;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-heading {
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+#account {
+  margin-top: 40px;
+  padding: 10px;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: url("../media/body-bockground.svg"), #014652;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position-y: 40px;
+  color: #efefef;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-heading {
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+#part {
+  margin-top: 40px;
+  padding: 10px;
+}
+
+#part .piece-composer {
+  font-weight: 400;
+}
+
+#part .piece-audio {
+  width: 100%;
+  height: 300px;
+}
+
+#part .piece-button-wrapper {
+  margin-top: 1rem;
+}
+
+#part .piece-button-wrapper button {
+  width: 140px;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: none;
+}
+
+#part .piece-button-wrapper .add-form {
+  margin-top: 1rem;
+  display: none;
+}
+
+#part .piece-button-wrapper .add-form.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#part .piece-button-wrapper .add-form select,
+#part .piece-button-wrapper .add-form button {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  margin-right: 1rem;
+  border: 1px solid black;
+}
+
+#part .piece-button-wrapper .add-form fieldset {
+  border: none;
+  padding: 10px;
+  background-color: #efefef;
+  border-radius: 10px;
+}
+
+#part .piece-data-wrapper {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+#part .piece-data-wrapper h2 {
+  font-weight: 400;
+}
 /*# sourceMappingURL=main.css.map */

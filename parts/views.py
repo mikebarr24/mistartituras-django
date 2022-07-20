@@ -1,7 +1,11 @@
-from django.http import HttpResponseRedirect
+import json
+from select import select
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from .models import Instrument, Part
 from .forms import NewUserForm, LoginForm
@@ -25,6 +29,27 @@ def buscar(request):
     })
 
 
+def part(request, part_id):
+    part = Part.objects.get(pk=part_id)
+    students = User.objects.filter(is_staff=False)
+    return render(request, "parts/part.html", {
+        "part": part,
+        "students": students
+    })
+
+
+@csrf_exempt
+def api(request):
+    if request.method == "PUT":
+        data = json.loads(request.body)
+        student_id = data.get("studentId")
+        part_id = data.get("part")
+        selected_part = Part.objects.get(pk=part_id)
+        selected_student = User.objects.get(pk=student_id)
+        selected_part.student.add(selected_student)
+        return HttpResponse(200)
+
+
 def contacto(request):
     return render(request, "parts/contacto.html")
 
@@ -37,19 +62,26 @@ def instrument(request, inst):
     })
 
 
-def login(request):
+def login_view(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            logger.info([username, password])
-            user = authenticate(username=username, password=password)
+            user = authenticate(request, username=username, password=password)
             if user is not None:
-                logger.info(user.email)
+                login(request, user)
+                return HttpResponseRedirect(reverse("account", kwargs={"username": user}))
+            else:
+                logger.info("Not authorised to Access This Page")
     return render(request, "parts/login.html", {
         "form": LoginForm()
     })
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
 
 
 def new_user(request):
@@ -83,3 +115,8 @@ def new_user(request):
     return render(request, "parts/new-user.html", {
         "form": NewUserForm()
     })
+
+
+@login_required
+def account(request, username):
+    return render(request, "parts/account.html")
