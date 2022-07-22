@@ -353,15 +353,11 @@ a {
 #contacto .contact-message {
   text-align: center;
 }
-#contacto .input-form {
+#contacto .contact-form {
   display: flex;
   flex-direction: column;
-  border: none;
-  margin-top: 1rem;
-  max-width: 600px;
-  margin: 1rem auto;
 }
-#contacto .input-form * {
+#contacto .contact-form input, #contacto .contact-form textarea {
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
   margin: 0.5rem 0;
@@ -373,6 +369,10 @@ a {
   width: 200px;
   padding: 1rem 1.5rem;
   font-weight: 600;
+}
+#contacto .success-message {
+  font-size: 2rem;
+  text-align: center;
 }
 
 html {

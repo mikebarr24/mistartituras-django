@@ -6,16 +6,19 @@
 {% block body %}
 
 <section id="account">
-  <h1>Welcome {{user.username}}</h1>
   {% if user.is_staff %}
-  <h1>Staff Account</h1>
+  <h1>Welcome {{user.username}} (Staff Account)</h1>
+  <p>Please create a new part using the following form.
+  </p>
+  <br />
   <form action="{% url 'account' user.id %}" method="post" class="new-part-form">
     {% csrf_token %}
     {{form}}
     <input class="part-submit-button" type="submit">
   </form>
   {% else %}
-  <h1>Student Account</h1>
+  <h1>Welcome {{user.username}} (Student Account)</h1>
+  <p>Browse the music your teacher has assigned to you.</p>
   <div class="part-display-wrapper">
     <div class="items-wrapper">
       <div class="item-wrapper">

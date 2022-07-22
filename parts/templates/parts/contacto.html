@@ -6,13 +6,13 @@
 <h1 class="page-heading">Contacto</h1>
 <p class="contact-message">If you have any questions, please don't hesitate to get in touch with
   us.</p>
-<form action="">
-  <fieldset class="input-form">
-    <input type="text" placeholder="Nombre" name="name">
-    <input type="email" placeholder="Email" name="email">
-    <textarea name="message" id="" cols="30" rows="10" placeholder="Tu Mensaje"></textarea>
-    <input type="submit" class="submit-button">
-  </fieldset>
+<form action="{% url 'contacto' %}" class="contact-form" method="post">
+  {% csrf_token %}
+  {{form}}
+  <input type="submit">
 </form>
+<div class="success-message">
+  {{message}}
+</div>
 </section>
 {% endblock %}

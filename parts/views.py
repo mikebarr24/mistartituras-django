@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from django.shortcuts import redirect
 from .models import Instrument, Part
-from .forms import NewUserForm, LoginForm, PartForm
+from .forms import NewUserForm, LoginForm, PartForm, ContactForm
 import logging
 
 logger = logging.getLogger(__name__)
@@ -64,7 +64,23 @@ def api(request):
 
 
 def contacto(request):
-    return render(request, "parts/contacto.html")
+    my_message = ""
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            my_email = [name, email, message]
+            my_message = "Your message has been sent successfully"
+            return render(request, "parts/contacto.html", {
+                "form":ContactForm(),
+                "message": my_message
+    })
+    return render(request, "parts/contacto.html", {
+        "form":ContactForm(),
+        "message": my_message
+    })
 
 
 def instrument(request, inst):

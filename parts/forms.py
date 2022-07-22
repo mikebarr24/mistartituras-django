@@ -24,6 +24,14 @@ class LoginForm(forms.Form):
         attrs={'placeholder': "Password"}), label="")
 
 
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=30, label="", widget=forms.TextInput(
+        attrs={'placeholder': "Name"}))
+    email = forms.CharField(max_length=30, label="", widget=forms.TextInput(
+        attrs={'placeholder': "Email"}))
+    message = forms.CharField(max_length=30, label="", widget=forms.Textarea(
+        attrs={'placeholder': "Message"}))
+
 class PartForm(ModelForm):
 
     class Meta:
