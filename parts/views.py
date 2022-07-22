@@ -58,8 +58,9 @@ def api(request):
         selected_part.student.remove(request.user.id)
         return HttpResponse(200)
     elif request.method == "POST":
-
-        return HttpResponse(200)
+        if request.POST.get("button") == "Delete":
+            Part.objects.get(pk=part_id).delete()
+            return HttpResponseRedirect(reverse("account", kwargs={"username": request.user}))
 
 
 def contacto(request):

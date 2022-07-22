@@ -5,13 +5,17 @@
 
 {% block body %}
 <section id="part">
-  <h1 class="piece-title">{{part.part_title}}</h1>
-  <h2 class="piece-composer">{{part.composer_name}}</h2>
-  {% if user.is_staff %}
-  <form action="{% url 'api' %}" method="post">
-    <input name="edit" type="submit" value="Edit">
-    <input name="delete" type="submit" value="Delete">
-  </form>
+  <div class="title-section">
+    <div class="title-text">
+      <h1 class="piece-title">{{part.part_title}}</h1>
+      <h2 class="piece-composer">{{part.composer_name}}</h2>
+    </div>
+    {% if user.is_staff %}
+    <form action="{% url 'api' %}" method="post">
+      <input type="hidden" name="part" value="{{part.id}}">
+      <input name="button" type="submit" value="Delete" class="delete-part-button">
+    </form>
+  </div>
   {% endif %}
   <iframe class="piece-audio" src={{part.audio}}></iframe>
   <div class="piece-data-wrapper">

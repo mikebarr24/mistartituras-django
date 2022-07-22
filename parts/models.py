@@ -12,7 +12,7 @@ class Part(models.Model):
     curso = models.ForeignKey("Curso", on_delete=models.CASCADE)
     pdf = models.URLField(max_length=200)
     audio = models.URLField(max_length=200)
-    student = models.ManyToManyField(User)
+    student = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return f"{self.part_title} -- {self.composer_name}"

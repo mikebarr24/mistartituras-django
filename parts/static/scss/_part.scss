@@ -3,8 +3,20 @@
 #part {
   margin-top: $nav-height;
   padding: 10px;
-  .piece-composer {
-    font-weight: 400;
+  .title-section{
+    display: flex;
+    justify-content: space-between;
+    .piece-composer {
+      font-weight: 400;
+    }
+    .delete-part-button{
+      background-color: red;
+      padding: 0.5rem 1rem;
+      color: $white-color;
+      border: none;
+      border-radius: 50px;
+      margin: 0.5rem 0;
+    }
   }
   .piece-audio {
     width: 100%;
