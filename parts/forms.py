@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from .models import Part
+from .models import Part, Level
 
 
 class NewUserForm(forms.Form):
@@ -31,6 +31,7 @@ class ContactForm(forms.Form):
         attrs={'placeholder': "Email"}))
     message = forms.CharField(max_length=30, label="", widget=forms.Textarea(
         attrs={'placeholder': "Message"}))
+
 
 class PartForm(ModelForm):
 

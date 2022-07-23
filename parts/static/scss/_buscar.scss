@@ -1,10 +1,12 @@
 @import "./config";
 
 #buscar {
+  margin: 0 auto;
   margin-top: $nav-height;
   padding: 10px;
   display: flex;
   flex-direction: column;
+  max-width: 800px;
   .instrument-tabs {
     display: flex;
     flex-wrap: wrap;

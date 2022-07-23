@@ -8,9 +8,10 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 from django.shortcuts import redirect
-from .models import Instrument, Part
+from .models import Curso, Instrument, Level, Part, Style
 from .forms import NewUserForm, LoginForm, PartForm, ContactForm
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 
@@ -77,18 +78,38 @@ def contacto(request):
             my_email = [name, email, message]
             my_message = "Your message has been sent successfully"
             return render(request, "parts/contacto.html", {
-                "form":ContactForm(),
+                "form": ContactForm(),
                 "message": my_message
-    })
+            })
     return render(request, "parts/contacto.html", {
-        "form":ContactForm(),
+        "form": ContactForm(),
         "message": my_message
     })
 
 
 def instrument(request, inst):
+    levels = Level.objects.all()
+    cursos = Curso.objects.all()
+    style = Style.objects.all()
+    if request.method == "POST":
+        search = request.POST.get('search')
+        level = request.POST.get('level')
+        curso = request.POST.get('curso')
+        estilo = request.POST.get('style')
+        selected_instrument = Part.objects.filter(
+            part_title__icontains=search, instrument__instrument=inst)
+        return render(request, 'parts/instruments.html', {
+            "levels": levels,
+            "estilos": style,
+            "cursos": cursos,
+            "parts": selected_instrument,
+            'instrument': inst
+        })
     selected_instrument = Part.objects.filter(instrument__instrument=inst)
     return render(request, "parts/instruments.html", {
+        "levels": levels,
+        "estilos": style,
+        "cursos": cursos,
         "parts": selected_instrument,
         'instrument': inst
     })

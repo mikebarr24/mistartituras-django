@@ -1,10 +1,27 @@
 @import "./config";
 
 #instrument {
+  max-width: 800px;
+  margin: 0 auto;
   margin-top: $nav-height;
   display: flex;
   flex-direction: column;
   padding: 10px;
+  .filter-div {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background-color: rgba($color: #ffffff, $alpha: 0.3);
+    border-radius: 10px;
+    input,
+    select {
+      border: none;
+      padding: 0.3rem 0.3rem;
+      border-radius: 5px;
+    }
+    .search-button {
+      margin-top: 0.5rem;
+    }
+  }
   .part-display-wrapper {
     background-color: rgba($color: $white-color, $alpha: 0.8);
     padding: 0.3rem;

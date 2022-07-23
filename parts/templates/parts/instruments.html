@@ -5,6 +5,33 @@
 {% block body %}
 <div id="instrument">
   <h1 class="page-heading">{{instrument|title}}</h1>
+  <div class="filter-div">
+    <h2>Filtro</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="text" placeholder="Buscar" name="search" >
+      <select name="level" id="">
+        <option value="">Nivel</option>
+        {% for level in levels %}
+        <option value="{{ level }}">{{ level|title }}</option>
+        {% endfor %}
+      </select>
+      <select name="curso" id="">
+        <option value="">Curso</option>
+        {% for curso in cursos %}
+        <option value="{{ curso }}">{{curso|title}}</option>
+        {% endfor %}      
+      </select>
+        <select name="style" id="">
+          <option value="">Estilo</option>
+          {% for estilo in estilos %}
+        <option value="{{ estilo }}">{{ estilo|title }}</option>
+        {% endfor %}      
+      </select>
+      <br />
+      <input type="submit" value="Buscar" class="search-button">
+    </form>
+  </div>
   <div class="part-display-wrapper">
     <div class="items-wrapper">
       <div class="item-wrapper">
