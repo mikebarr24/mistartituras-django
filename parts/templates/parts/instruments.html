@@ -13,19 +13,19 @@
       <select name="level" id="">
         <option value="">Nivel</option>
         {% for level in levels %}
-        <option value="{{ level }}">{{ level|title }}</option>
+        <option value="{{ level.id }}">{{ level|title }}</option>
         {% endfor %}
       </select>
       <select name="curso" id="">
         <option value="">Curso</option>
         {% for curso in cursos %}
-        <option value="{{ curso }}">{{curso|title}}</option>
+        <option value="{{ curso.id }}">{{curso|title}}</option>
         {% endfor %}      
       </select>
         <select name="style" id="">
           <option value="">Estilo</option>
           {% for estilo in estilos %}
-        <option value="{{ estilo }}">{{ estilo|title }}</option>
+        <option value="{{ estilo.id }}">{{ estilo|title }}</option>
         {% endfor %}      
       </select>
       <br />

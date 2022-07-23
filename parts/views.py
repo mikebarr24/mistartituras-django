@@ -92,12 +92,12 @@ def instrument(request, inst):
     cursos = Curso.objects.all()
     style = Style.objects.all()
     if request.method == "POST":
-        search = request.POST.get('search')
+        search = request.POST.get('search') 
         level = request.POST.get('level')
         curso = request.POST.get('curso')
         estilo = request.POST.get('style')
         selected_instrument = Part.objects.filter(
-            part_title__icontains=search, instrument__instrument=inst)
+            part_title__icontains=search, instrument__instrument=inst, level=level, curso=curso, style=estilo)
         return render(request, 'parts/instruments.html', {
             "levels": levels,
             "estilos": style,
