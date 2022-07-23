@@ -1,7 +1,9 @@
 @import "./config";
 
 #account {
+  margin: 0 auto;
   margin-top: $nav-height;
+  max-width: 800px;
   padding: 10px;
   .new-part-form {
     display: flex;

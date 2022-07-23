@@ -277,10 +277,12 @@ a {
 
 #nosotros {
   padding: 1rem 10px;
+  margin: 0 auto;
   margin-top: 40px;
   min-height: calc(100vh - 40px);
   display: flex;
   flex-direction: column;
+  max-width: 800px;
 }
 @media (min-width: 922px) {
   #nosotros {
@@ -304,8 +306,7 @@ a {
 #nosotros .photo-container img {
   border-radius: 50%;
   margin-top: 3rem;
-  min-width: 150px;
-  max-width: 300px;
+  width: 150px;
 }
 
 html {
@@ -345,7 +346,9 @@ a {
 }
 
 #contacto {
+  margin: 0 auto;
   margin-top: 40px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -538,6 +541,8 @@ a {
 #login {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  max-width: 400px;
   margin-top: 40px;
   padding: 10px;
 }
@@ -689,7 +694,9 @@ a {
 }
 
 #account {
+  margin: 0 auto;
   margin-top: 40px;
+  max-width: 800px;
   padding: 10px;
 }
 #account .new-part-form {
@@ -767,12 +774,16 @@ a {
 }
 
 #part {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   margin-top: 40px;
   padding: 10px;
+  max-width: 700px;
 }
 #part .title-section {
-  display: flex;
   justify-content: space-between;
+  display: flex;
 }
 #part .title-section .piece-composer {
   font-weight: 400;

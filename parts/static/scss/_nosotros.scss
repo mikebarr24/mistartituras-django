@@ -2,10 +2,12 @@
 
 #nosotros {
   padding: 1rem 10px;
+  margin: 0 auto;
   margin-top: $nav-height;
   min-height: calc(100vh - $nav-height);
   display: flex;
   flex-direction: column;
+  max-width: 800px;
   @include laptop {
     padding: 10px 2rem;
   }
@@ -23,8 +25,7 @@
     img {
       border-radius: 50%;
       margin-top: 3rem;
-      min-width: 150px;
-      max-width: 300px;
+      width: 150px;
     }
   }
 }

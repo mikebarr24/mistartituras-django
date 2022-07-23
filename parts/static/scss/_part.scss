@@ -1,11 +1,15 @@
 @import "./config";
 
 #part {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   margin-top: $nav-height;
   padding: 10px;
+  max-width: 700px;
   .title-section{
-    display: flex;
     justify-content: space-between;
+    display: flex;
     .piece-composer {
       font-weight: 400;
     }

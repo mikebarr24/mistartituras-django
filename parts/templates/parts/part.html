@@ -11,12 +11,12 @@
       <h2 class="piece-composer">{{part.composer_name}}</h2>
     </div>
     {% if user.is_staff %}
-    <form action="{% url 'api' %}" method="post">
-      <input type="hidden" name="part" value="{{part.id}}">
-      <input name="button" type="submit" value="Delete" class="delete-part-button">
-    </form>
+      <form action="{% url 'api' %}" method="post">
+        <input type="hidden" name="part" value="{{part.id}}">
+        <input name="button" type="submit" value="Delete" class="delete-part-button">
+      </form>
+    {% endif %}
   </div>
-  {% endif %}
   <iframe class="piece-audio" src={{part.audio}}></iframe>
   <div class="piece-data-wrapper">
     <h2 class="piece-instrument">Instrumento - {{part.instrument|title}}</h2>

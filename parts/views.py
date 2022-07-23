@@ -41,24 +41,27 @@ def part(request, part_id):
 
 @csrf_exempt
 def api(request):
-    if request.method == "PUT" and data.get("type") == "add":
+    if request.method == "PUT":
         data = json.loads(request.body)
-        student_id = data.get("studentId")
-        part_id = data.get("part")
-        selected_part = Part.objects.get(pk=part_id)
-        selected_student = User.objects.get(pk=student_id)
-        selected_part.student.add(selected_student)
-        return JsonResponse({
-            "complete": f"{selected_part.part_title} has been added to {selected_student.username}"
-        })
-    elif request.method == "PUT" and data.get("type") == "remove":
-        data = json.loads(request.body)
-        part_id = data.get('part')
-        selected_part = Part.objects.get(pk=part_id)
-        selected_part.student.remove(request.user.id)
-        return HttpResponse(200)
-    elif request.method == "POST":
+        if data.get("type") == "add":
+            student_id = data.get("studentId")
+            part_id = data.get("part")
+            selected_part = Part.objects.get(pk=part_id)
+            selected_student = User.objects.get(pk=student_id)
+            selected_part.student.add(selected_student)
+            return JsonResponse({
+                "complete": f"{selected_part.part_title} has been added to {selected_student.username}"
+            })
+        elif request.method == "PUT" and data.get("type") == "remove":
+            data = json.loads(request.body)
+            part_id = data.get('part')
+            selected_part = Part.objects.get(pk=part_id)
+            selected_part.student.remove(request.user.id)
+            return HttpResponse(200)
+
+    if request.method == "POST":
         if request.POST.get("button") == "Delete":
+            part_id = request.POST.get("part")
             Part.objects.get(pk=part_id).delete()
             return HttpResponseRedirect(reverse("account", kwargs={"username": request.user}))
 

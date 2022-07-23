@@ -3,16 +3,16 @@
 {% block title %} Contacto {%endblock%}
 {% block body %}
 <section id="contacto">
-<h1 class="page-heading">Contacto</h1>
-<p class="contact-message">If you have any questions, please don't hesitate to get in touch with
-  us.</p>
-<form action="{% url 'contacto' %}" class="contact-form" method="post">
-  {% csrf_token %}
-  {{form}}
-  <input type="submit">
-</form>
-<div class="success-message">
-  {{message}}
-</div>
+  <h1 class="page-heading">Contacto</h1>
+  <p class="contact-message">If you have any questions, please don't hesitate to get in touch with
+    us.</p>
+  <form action="{% url 'contacto' %}" class="contact-form" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit">
+  </form>
+  <div class="success-message">
+    {{message}}
+  </div>
 </section>
 {% endblock %}

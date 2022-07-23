@@ -1,7 +1,9 @@
 @import "./config";
 
 #contacto {
+  margin: 0 auto;
   margin-top: $nav-height;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   padding: 10px;
