@@ -91,13 +91,21 @@ def instrument(request, inst):
     levels = Level.objects.all()
     cursos = Curso.objects.all()
     style = Style.objects.all()
-    if request.method == "POST":
-        search = request.POST.get('search') 
+    selected_instrument = Part.objects.filter(instrument__instrument=inst)
+    if request.method == "POST" and request.POST.get('button_type') == "Buscar":
+        search = request.POST.get('search')
         level = request.POST.get('level')
         curso = request.POST.get('curso')
         estilo = request.POST.get('style')
-        selected_instrument = Part.objects.filter(
-            part_title__icontains=search, instrument__instrument=inst, level=level, curso=curso, style=estilo)
+        if search != "":
+            selected_instrument = selected_instrument.filter(
+                part_title__icontains=search)
+        if level != "":
+            selected_instrument = selected_instrument.filter(level=level)
+        if curso != "":
+            selected_instrument = selected_instrument.filter(curso=curso)
+        if estilo != "":
+            selected_instrument = selected_instrument.filter(style=estilo)
         return render(request, 'parts/instruments.html', {
             "levels": levels,
             "estilos": style,
@@ -105,7 +113,6 @@ def instrument(request, inst):
             "parts": selected_instrument,
             'instrument': inst
         })
-    selected_instrument = Part.objects.filter(instrument__instrument=inst)
     return render(request, "parts/instruments.html", {
         "levels": levels,
         "estilos": style,

@@ -1,10 +1,12 @@
 @import "./config";
 
 #new-user {
+  margin: 0 auto;
   margin-top: $nav-height;
   display: flex;
   flex-direction: column;
   padding: 10px;
+  max-width: 800px;
   .new-user-form {
     margin-top: 1rem;
     display: flex;
